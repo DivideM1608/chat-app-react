@@ -9,6 +9,8 @@ const ChatPage = ({ socket }) => {
   const lastMessageRef = useRef(null);
   const [users, setUsers] = useState([])
 
+  socket.emit('newUser', { socketID: socket.id })
+
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
   }, [socket, messages]);

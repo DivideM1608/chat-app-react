@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 const ChatBar = ({ socket }) => {
-  
+
   const [users, setUsers] = useState([])
 
   useEffect(() => {
     socket.on('newUserResponse', (data) => setUsers(data));
   }, [socket, users])
-
+  console.log(users)
   return (
     <div className="chat__sidebar">
       <h2>Open Chat</h2>
